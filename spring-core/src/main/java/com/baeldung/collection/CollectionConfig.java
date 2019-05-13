@@ -16,7 +16,7 @@ public class CollectionConfig {
     }
 
     @Bean
-    public List<String> nameList(){
+    public List<String> nameList() {
         return Arrays.asList("John", "Adam", "Harry", null);
     }
 
@@ -47,4 +47,5 @@ public class CollectionConfig {
     public BaeldungBean getOneMoreElement() {
         return new BaeldungBean("Harry");
     }
+
 }

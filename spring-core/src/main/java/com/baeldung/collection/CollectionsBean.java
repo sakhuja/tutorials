@@ -59,4 +59,5 @@ public class CollectionsBean {
     public void printNameListWithDefaults() {
         System.out.println(nameListWithDefaultValue);
     }
+
 }

@@ -4,7 +4,6 @@ import com.baeldung.dependencyinjectiontypes.annotation.CarQualifier;
 import com.baeldung.dependencyinjectiontypes.model.Car;
 import com.baeldung.dependencyinjectiontypes.model.CarHandler;
 import com.baeldung.dependencyinjectiontypes.model.Motorcycle;
-import com.baeldung.dependencyinjectiontypes.model.Vehicle;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
@@ -20,12 +19,6 @@ public class CustomConfiguration {
 		return new Car("E280", "Mercedes", "Diesel");
 	}
 
-	public static void main(String[] args) throws NoSuchFieldException {
-		ConfigurableApplicationContext context = SpringApplication.run(CustomConfiguration.class, args);
-		CarHandler carHandler = context.getBean(CarHandler.class);
-		carHandler.getVehicles().forEach(System.out::println);
-	}
-
 	@Bean
 	@CarQualifier
 	public Car getBmw() {
@@ -36,4 +29,12 @@ public class CustomConfiguration {
 	public Motorcycle getSuzuki() {
 		return new Motorcycle("Yamaguchi", "Suzuki", true);
 	}
+
+
+	public static void main(String[] args) throws NoSuchFieldException {
+		ConfigurableApplicationContext context = SpringApplication.run(CustomConfiguration.class, args);
+		CarHandler carHandler = context.getBean(CarHandler.class);
+		carHandler.getVehicles().forEach(System.out::println);
+	}
+
 }
